@@ -1,21 +1,13 @@
-# myvue
+### **从零搭建自己的vue管理端框架** 
 
-> A Vue.js project
 
-## Build Setup
+ **项目所需环境：node.js  vue** 
 
-``` bash
-# install dependencies
-npm install
+ **系列教程已经开始陆续更新** 
 
-# serve with hot reload at localhost:8080
-npm run dev
 
-# build for production with minification
-npm run build
+- [ **一：安装Vue脚手架所需环境** ](https://juejin.im/post/5b5fe1c8e51d4519511363cc)
+- [ **二：搭建Vue脚手架**  ](https://juejin.im/post/5b74ea4f51882561131aafea)
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+ **写文章不易，如对您有帮助，请帮忙点下Star** 
