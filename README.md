@@ -8,6 +8,7 @@
 
 - [ **一：安装Vue脚手架所需环境** ](https://juejin.im/post/5b5fe1c8e51d4519511363cc)
 - [ **二：搭建Vue脚手架和整合ElementUI**  ](https://juejin.im/post/5b74ea4f51882561131aafea)
+- [ **三：创建登录页和跳转Home页**  ](https://juejin.im/post/5b767c27f265da27ee5361b4)
 
  **项目预览**
 ![输入图片说明](https://images.gitee.com/uploads/images/2018/0816/124138_f2796da4_1325113.png "微信截图_20180731120229.png")
