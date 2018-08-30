@@ -1,5 +1,7 @@
 export const THEME = {
   STYLE: [{
+    // 主题名字
+    'themeName':'默认主题',
     /*头部背景颜色  父级菜单颜色*/
     '--headerColor':'#202d3d',
     /*子集菜单颜色*/
@@ -9,11 +11,12 @@ export const THEME = {
     /*字体颜色*/
     '--fontColor':'#fff',
     /*整体背景颜色  or  图片*/
-    '--backgroundStyle':'#2C3E5',
+    '--backgroundStyle':'#2C3E50',
     /*view背景颜色*/
     '--viewBackgroundStyle':'rgba(255, 255, 255, 1)',
     '--openSonFontColor':'#fff'
   },{
+    'themeName':'炫酷主题',
     '--backgroundStyle':'url("/static/img/star-squashed.c308c92.jpg")',
     '--headerColor':'rgba(255, 255, 255, 0)',
     '--sonMenuColor':'rgba(255, 255, 255, 0)',
@@ -22,6 +25,7 @@ export const THEME = {
     '--viewBackgroundStyle':'rgba(255, 255, 255, 0.8)',
     '--openSonFontColor':'#fff'
   },{
+    'themeName':'渐变主题',
     '--backgroundStyle':'linear-gradient(120deg,#bc00e3,#4efffb)',
     '--headerColor':'rgba(255, 255, 255, 0)',
     '--sonMenuColor':'rgba(255, 255, 255, 0)',
@@ -30,6 +34,7 @@ export const THEME = {
     '--viewBackgroundStyle':'rgba(255, 255, 255, 0.8)',
     '--openSonFontColor':'#fff'
   },{
+    'themeName':'黑色主题',
     '--backgroundStyle':'#002253',
     '--headerColor':'rgba(255, 255, 255, 0)',
     '--sonMenuColor':'rgba(255, 255, 255, 0)',
@@ -37,11 +42,22 @@ export const THEME = {
     '--fontColor':'#ff929a',
     '--viewBackgroundStyle':'rgba(255, 255, 255, 0.8)',
     '--openSonFontColor':'#ffb870'
+  },{
+    'themeName':'白色主题',
+    '--backgroundStyle':'#eceef3',
+    '--headerColor':'#fff',
+    '--sonMenuColor':'#fff',
+    '--openSonMenuColor':'#e2edff',
+    '--fontColor':'rgb(102, 102, 102)',
+    '--viewBackgroundStyle':'#fff',
+    '--openSonFontColor':'#00AFF9'
   }],
 }
 export const setThemeStyle = function(index) {
   var themeStyleObj = THEME.STYLE[index];
   for (var Key in themeStyleObj){
-    document.documentElement.style.setProperty(Key, themeStyleObj[Key]);
+    if(Key!= 'themeName'){
+      document.documentElement.style.setProperty(Key, themeStyleObj[Key]);
+    }
   }
 }

@@ -7,8 +7,8 @@
         </div>
       </el-tooltip>
       <div class="disFlex header-div-right">
-        <div @click="updateTheme">
-          <span>更换主题</span>
+        <div @click="isUpdataTheme = true">
+          <i class="el-icon-menu"></i>
         </div>
         <div @click="Screen"
              v-if="!isScreen" style="padding: 0px 10px;">
@@ -70,7 +70,7 @@
           </el-collapse-transition>
         </div>
       </div>
-      <div style="width: 95%;">
+      <div style="width: 95%;margin-left: 20px;">
         <router-view class="routerView"></router-view>
       </div>
     </div>
@@ -93,6 +93,12 @@
         <el-button type="primary" @click="modifyPassword">确 定</el-button>
       </div>
     </el-dialog>
+
+    <el-dialog title="更换主题" :visible.sync="isUpdataTheme">
+      <el-radio-group v-model="themeIndex" @change = "updateTheme">
+        <el-radio :label="index" v-for="(theme,index) in themeList">{{theme.themeName}}</el-radio>
+      </el-radio-group>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -111,9 +117,13 @@
           repeatNewPassword: ''
         },
         isScreen: false,
+        themeIndex: 1,
+        isUpdataTheme:false,
+        themeList:[],
       }
     },
     created: function () {
+      this.themeList = theme.THEME.STYLE;
       this.menuList = [
         {
           menuName: "文章管理", isOpen: 0,
@@ -133,10 +143,11 @@
         }
       ];
       this.userName = "MyVue";
+      this.updateTheme(this.themeIndex);
     },
     methods: {
-      updateTheme(){
-        theme.setThemeStyle(3)
+      updateTheme(index){
+        theme.setThemeStyle(index)
       },
       Screen() {
         var _this = this;
