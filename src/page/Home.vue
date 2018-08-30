@@ -117,7 +117,7 @@
           repeatNewPassword: ''
         },
         isScreen: false,
-        themeIndex: 1,
+        themeIndex: 0,
         isUpdataTheme:false,
         themeList:[],
       }
@@ -257,7 +257,7 @@
   }
 
   .menu-list-div {
-    width: 10%;
+    width: 12%;
     max-width: 200px;
     min-height: 100%;
     background-color: var(--sonMenuColor);

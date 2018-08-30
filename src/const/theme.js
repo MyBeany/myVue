@@ -3,7 +3,7 @@ export const THEME = {
     // 主题名字
     'themeName':'默认主题',
     /*头部背景颜色  父级菜单颜色*/
-    '--headerColor':'#202d3d',
+    '--headerColor':'#2C3E50',
     /*子集菜单颜色*/
     '--sonMenuColor':'#2C3E50',
     /*子集菜单选中颜色*/
@@ -11,10 +11,12 @@ export const THEME = {
     /*字体颜色*/
     '--fontColor':'#fff',
     /*整体背景颜色  or  图片*/
-    '--backgroundStyle':'#2C3E50',
+    '--backgroundStyle':'#283542',
     /*view背景颜色*/
     '--viewBackgroundStyle':'rgba(255, 255, 255, 1)',
-    '--openSonFontColor':'#fff'
+    // 选中子菜单自字体颜色
+    '--openSonFontColor':'#fff',
+    // 菜单悬浮时
   },{
     'themeName':'炫酷主题',
     '--backgroundStyle':'url("/static/img/star-squashed.c308c92.jpg")',
