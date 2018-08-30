@@ -262,6 +262,8 @@
     min-height: 100%;
     background-color: var(--sonMenuColor);
     font-size: 16px;
+    border-radius: 5px;
+    padding: 5px;
   }
 
   .menu-list-bgc {
