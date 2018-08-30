@@ -46,7 +46,7 @@
         if(key == 13) {
           _this.login();
         }
-      }
+      };
     },
     methods: {
       //登录事件
