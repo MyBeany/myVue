@@ -9,6 +9,10 @@ import router from './router'
 //引入自己的通用css
 import '../static/css/common.css'
 
+//引入图表插件
+import VCharts from 'v-charts'
+Vue.use(VCharts)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
