@@ -7,7 +7,7 @@
         </div>
       </el-tooltip>
       <div class="disFlex header-div-right">
-        <div @click="isUpdataTheme = true">
+        <div @click="isUpdataTheme = true" style="font-size: 20px">
           <i class="el-icon-menu"></i>
         </div>
         <div @click="Screen"
@@ -38,7 +38,7 @@
         </div>
       </el-collapse-transition>
     </div>
-    <div class="disFlex" style="min-height: calc(100% - 90px);padding:0 50px;">
+    <div class="disFlex" style="height: calc(100% - 90px);padding:0 15px;">
       <div class="menu-list-div">
         <div v-for="(menu,index) in menuList" :key="menu.id">
           <a>
@@ -96,7 +96,7 @@
 
     <el-dialog title="更换主题" :visible.sync="isUpdataTheme">
       <el-radio-group v-model="themeIndex" @change = "updateTheme">
-        <el-radio :label="index" v-for="(theme,index) in themeList">{{theme.themeName}}</el-radio>
+        <el-radio :label="index" v-for="(theme,index) in themeList" :key = "index">{{theme.themeName}}</el-radio>
       </el-radio-group>
     </el-dialog>
   </div>
@@ -128,18 +128,20 @@
         {
           menuName: "文章管理", isOpen: 0,
           adminMenuList: [
-            {menuName: "添加文章", isOpen: 0, path: "/articleManage"}
+            {menuName: "添加文章", isOpen: 0, path: "/articleManage", isExternal:0}
           ]
         },
         {
-          menuName: "新闻管理", isOpen: 0,
+          menuName: "外部链接", isOpen: 0,
           adminMenuList: [
-            {menuName: "添加新闻", isOpen: 0, path: "fdvd"}
+            {menuName: "Element UI", isOpen: 0, path: "/Iframe", isExternal:1, query:"http://element-cn.eleme.io"}
           ]
         },
         {
           menuName: "用户管理", isOpen: 0,
-          adminMenuList: []
+          adminMenuList: [
+            {menuName: "查看用户", isOpen: 0, path: "/user", isExternal:0}
+          ]
         }
       ];
       this.userName = "MyVue";
@@ -197,6 +199,9 @@
           if (i != index1) {
             menu.adminMenuList[i].isOpen = 0;
           } else {
+            if(item.isExternal == 1){
+              window.localStorage.setItem('query', item.query);
+            }
             menu.adminMenuList[i].isOpen = 1;
           }
         })
@@ -258,12 +263,13 @@
 
   .menu-list-div {
     width: 12%;
-    max-width: 200px;
-    min-height: 100%;
+    max-width: 190px;
+    height: calc(100% - 30px);
     background-color: var(--sonMenuColor);
     font-size: 16px;
     border-radius: 5px;
     padding: 5px;
+    overflow-y: auto;
   }
 
   .menu-list-bgc {
@@ -322,8 +328,10 @@
   }
 
   .routerView {
+    width: 100%;
     background: var(--viewBackgroundStyle);
     border-radius: 5px;
-    min-height: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border: 0;
   }
 </style>

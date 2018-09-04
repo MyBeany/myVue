@@ -54,7 +54,7 @@ transform: rotate(90deg);
   transform-origin: center center;
   transform: rotate(0deg); //返回原点
 -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(deg);
+  -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transition: transform 0.3s;
@@ -62,4 +62,36 @@ transform: rotate(90deg);
   -moz-transition: -moz-transform 0.3s;
   -o-transition: -o-transform 0.3s;
   -ms-transition: -ms-transform 0.3s;
+}
+
+
+::-webkit-scrollbar
+{
+  width: 16px;
+  height: 16px;
+  background-color: #F5F5F5;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #555;
+}
+
+.ql-container.ql-snow{
+  border: 0 !important;
+}
+
+.ql-container {
+  height: 90% !important;
 }

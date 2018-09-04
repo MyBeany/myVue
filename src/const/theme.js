@@ -42,7 +42,7 @@ export const THEME = {
     '--sonMenuColor':'rgba(255, 255, 255, 0)',
     '--openSonMenuColor':'hsla(0,0%,100%,.05)',
     '--fontColor':'#ff929a',
-    '--viewBackgroundStyle':'rgba(255, 255, 255, 0.8)',
+    '--viewBackgroundStyle':'#fff',
     '--openSonFontColor':'#ffb870'
   },{
     'themeName':'白色主题',
@@ -59,7 +59,7 @@ export const setThemeStyle = function(index) {
   var themeStyleObj = THEME.STYLE[index];
   for (var Key in themeStyleObj){
     if(Key!= 'themeName'){
-      document.documentElement.style.setProperty(Key, themeStyleObj[Key]);
+        document.documentElement.style.setProperty(Key, themeStyleObj[Key]);
     }
   }
 }
