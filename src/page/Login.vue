@@ -39,6 +39,7 @@
       }
     },
     created: function() {
+      require('../images/star-squashed.jpg')
       var _this = this;
       //键盘回车键绑定登录事件
       document.onkeydown = function(e) {

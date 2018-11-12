@@ -21,7 +21,7 @@ export default new Router({
       children: [
         {path: "", component: Index},
         {path:"/articleManage", component:ArticleManage},
-        {path:"/Iframe", component:Iframe},
+        {path:"/Iframe/:path", component:Iframe},
         {path:"/user", component:User}
       ]
     }

@@ -14,18 +14,17 @@
       }
     },
     created: function () {
-      this.query = window.localStorage.getItem('query');
+      this.query = this.$route.params.path;
     }
   }
 </script>
 
 <style scoped>
   .iframeView {
-    position: absolute;
-    width: 87%;
+    width: 100%;
     background: var(--viewBackgroundStyle);
     border-radius: 5px;
-    min-height: calc(100% - 110px);
+    min-height: calc(100% - 20px);
     border: 0;
   }
 </style>

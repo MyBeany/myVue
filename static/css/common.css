@@ -67,8 +67,8 @@ transform: rotate(90deg);
 
 ::-webkit-scrollbar
 {
-  width: 16px;
-  height: 16px;
+  width: 10px;
+  height: 10px;
   background-color: #F5F5F5;
 }
 
@@ -85,7 +85,7 @@ transform: rotate(90deg);
 {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  background-color: #555;
+  background-color: #ccc;
 }
 
 .ql-container.ql-snow{

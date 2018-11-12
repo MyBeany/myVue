@@ -10,11 +10,11 @@
         <div @click="isUpdataTheme = true" style="font-size: 20px">
           <i class="el-icon-menu"></i>
         </div>
-        <div @click="Screen"
+        <div @click="screen"
              v-if="!isScreen" style="padding: 0px 10px;">
           <span>全屏显示</span>
         </div>
-        <div @click="Screen" v-if="isScreen" style="padding: 0px 10px;">
+        <div @click="screen" v-if="isScreen" style="padding: 0px 10px;">
           <span>关闭全屏</span>
         </div>
         <div @click="showLoginOut = !showLoginOut" style="padding: 0px 10px;">
@@ -41,22 +41,20 @@
     <div class="disFlex" style="height: calc(100% - 90px);padding:0 15px;">
       <div class="menu-list-div">
         <div v-for="(menu,index) in menuList" :key="menu.id">
-          <a>
-            <div @click="showMenu(index)" class="menu-list-bgc disFlex">
-              <div style="width: 80%;">
-                <span>{{menu.menuName}}</span>
-              </div>
-              <div style="width: 20%;text-align: right;">
-                <i class="el-icon-arrow-right"
-                   :class="[menu.isOpen == 1?'rotate':'rotate1']"
-                   v-if="menu.adminMenuList.length > 0"></i>
-              </div>
+          <div @click="showMenu(index)" class="menu-list-bgc disFlex">
+            <div style="width: 80%;">
+              <span>{{menu.menuName}}</span>
             </div>
-          </a>
+            <div style="width: 20%;text-align: right;">
+              <i class="el-icon-arrow-right"
+                 :class="[menu.isOpen == 1?'rotate':'rotate1']"
+                 v-if="menu.adminMenuList.length > 0"></i>
+            </div>
+          </div>
           <el-collapse-transition>
             <div v-show="menu.isOpen==1">
               <a>
-                <router-link tag="li" :to="menuSon.path"
+                <router-link tag="li" :to="menuSon.query == undefined? menuSon.path : menuSon.path + menuSon.query"
                              v-for="(menuSon,index1) in menu.adminMenuList"
                              :key="menuSon.id">
                   <div class="menuSon-list-bgc"
@@ -70,8 +68,8 @@
           </el-collapse-transition>
         </div>
       </div>
-      <div style="width: 95%;margin-left: 20px;">
-        <router-view class="routerView"></router-view>
+      <div style="width: 100%;margin-left: 20px;">
+        <router-view class="routerView" :key="$route.fullPath"></router-view>
       </div>
     </div>
 
@@ -128,19 +126,20 @@
         {
           menuName: "文章管理", isOpen: 0,
           adminMenuList: [
-            {menuName: "添加文章", isOpen: 0, path: "/articleManage", isExternal:0}
+            {menuName: "添加文章", isOpen: 0, path: "/articleManage"}
           ]
         },
         {
           menuName: "外部链接", isOpen: 0,
           adminMenuList: [
-            {menuName: "Element UI", isOpen: 0, path: "/Iframe", isExternal:1, query:"http://element-cn.eleme.io"}
+            {menuName: "百度", isOpen: 0, path: "/Iframe", query:"/https%3A%2F%2Fwww.baidu.com"},
+            {menuName: "Element UI", isOpen: 0, path: "/Iframe", query:"/http%3A%2F%2Felement-cn.eleme.io/#/zh-CN"}
           ]
         },
         {
           menuName: "用户管理", isOpen: 0,
           adminMenuList: [
-            {menuName: "查看用户", isOpen: 0, path: "/user", isExternal:0}
+            {menuName: "查看用户", isOpen: 0, path: "/user"}
           ]
         }
       ];
@@ -148,10 +147,16 @@
       this.updateTheme(this.themeIndex);
     },
     methods: {
+      goPath(path){
+        let _this = this;
+        _this.$router.push({
+          path: path,
+        })
+      },
       updateTheme(index){
         theme.setThemeStyle(index)
       },
-      Screen() {
+      screen() {
         var _this = this;
         if (!_this.isScreen) {
           _this.openScreen();
@@ -199,9 +204,6 @@
           if (i != index1) {
             menu.adminMenuList[i].isOpen = 0;
           } else {
-            if(item.isExternal == 1){
-              window.localStorage.setItem('query', item.query);
-            }
             menu.adminMenuList[i].isOpen = 1;
           }
         })
@@ -277,6 +279,7 @@
     color: var(--fontColor);
     align-items: center;
     padding: 15px;
+    cursor: pointer;
   }
 
   .menuSon-list-bgc {
