@@ -39,7 +39,6 @@
       }
     },
     created: function() {
-      require('../images/star-squashed.jpg')
       var _this = this;
       //键盘回车键绑定登录事件
       document.onkeydown = function(e) {
@@ -61,11 +60,11 @@
       //数据校验事件
       dataCheck(){
         if(!this.loginForm.userName){
-          Message.warning("请输入账号")
+          Message.warning("请输入账号");
           return false;
         }
         if(!this.loginForm.password){
-          Message.warning("请输入密码")
+          Message.warning("请输入密码");
           return false;
         }
         return true;

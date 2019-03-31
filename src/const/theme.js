@@ -17,15 +17,32 @@ export const THEME = {
     // 选中子菜单自字体颜色
     '--openSonFontColor':'#fff',
     // 菜单悬浮时
+    '--userBackgroundStyle':'#2C3E50',
+    '--userFontColor':'#fff'
   },{
     'themeName':'炫酷主题',
-    '--backgroundStyle':'url("/static/img/star-squashed.c308c92.jpg")',
+    '--backgroundStyle':'url("https://i4.piimg.com/510372/2bdbeadd3d33f01f.png")',
     '--headerColor':'rgba(255, 255, 255, 0)',
     '--sonMenuColor':'rgba(255, 255, 255, 0)',
     '--openSonMenuColor':'rgba(255, 255, 255, 0)',
     '--fontColor':'#fff',
     '--viewBackgroundStyle':'rgba(255, 255, 255, 0.8)',
-    '--openSonFontColor':'#fff'
+    '--openSonFontColor':'#fff',
+    // 菜单悬浮时
+    '--userBackgroundStyle':'rgba(0,0,0,.5)',
+    '--userFontColor':'#fff'
+  },{
+    'themeName':'书香年华',
+    '--backgroundStyle':'url("http://pic.netbian.com/uploads/allimg/170630/160943-14988101838dc4.jpg")',
+    '--headerColor':'rgba(255, 255, 255, 0)',
+    '--sonMenuColor':'rgba(255, 255, 255, 0)',
+    '--openSonMenuColor':'rgba(255, 255, 255, 0)',
+    '--fontColor':'#fff',
+    '--viewBackgroundStyle':'rgba(255, 255, 255, 0.8)',
+    '--openSonFontColor':'#fff',
+    // 菜单悬浮时
+    '--userBackgroundStyle':'rgba(0,0,0,.5)',
+    '--userFontColor':'#fff'
   },{
     'themeName':'渐变主题',
     '--backgroundStyle':'linear-gradient(120deg,#bc00e3,#4efffb)',
@@ -34,7 +51,10 @@ export const THEME = {
     '--openSonMenuColor':'rgba(255, 255, 255, 0)',
     '--fontColor':'#fff',
     '--viewBackgroundStyle':'rgba(255, 255, 255, 0.8)',
-    '--openSonFontColor':'#fff'
+    '--openSonFontColor':'#fff',
+    // 菜单悬浮时
+    '--userBackgroundStyle':'rgba(188, 0, 227, 0.4)',
+    '--userFontColor':'#fff'
   },{
     'themeName':'黑色主题',
     '--backgroundStyle':'#002253',
@@ -43,7 +63,10 @@ export const THEME = {
     '--openSonMenuColor':'hsla(0,0%,100%,.05)',
     '--fontColor':'#ff929a',
     '--viewBackgroundStyle':'#fff',
-    '--openSonFontColor':'#ffb870'
+    '--openSonFontColor':'#ffb870',
+    // 菜单悬浮时
+    '--userBackgroundStyle':'rgba(255, 255, 255, 0)',
+    '--userFontColor':'#ff929a'
   },{
     'themeName':'白色主题',
     '--backgroundStyle':'#eceef3',
@@ -52,14 +75,19 @@ export const THEME = {
     '--openSonMenuColor':'#e2edff',
     '--fontColor':'rgb(102, 102, 102)',
     '--viewBackgroundStyle':'#fff',
-    '--openSonFontColor':'#00AFF9'
+    '--openSonFontColor':'#00AFF9',
+    // 菜单悬浮时
+    '--userBackgroundStyle':'#e2edff',
+    '--userFontColor':'#00AFF9'
   }],
-}
+};
+
+//修改样式
 export const setThemeStyle = function(index) {
   var themeStyleObj = THEME.STYLE[index];
   for (var Key in themeStyleObj){
     if(Key!= 'themeName'){
-        document.documentElement.style.setProperty(Key, themeStyleObj[Key]);
+      document.documentElement.style.setProperty(Key, themeStyleObj[Key]);
     }
   }
 }

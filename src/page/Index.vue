@@ -4,11 +4,11 @@
       <h2>欢迎使用MyVue</h2>
     </div>
     <!-- 图表文档地址 https://v-charts.js.org-->
-    <div class="disFlex">
-      <ve-line :data="chartData" style="width: 50%"></ve-line>
+    <!--<div class="disFlex">-->
+      <!--<ve-line :data="chartData" style="width: 50%"></ve-line>-->
 
-      <ve-pie :data="chart1Data" :settings="chartSettings" style="width: 50%"></ve-pie>
-    </div>
+      <!--<ve-pie :data="chart1Data" :settings="chartSettings" style="width: 50%"></ve-pie>-->
+    <!--</div>-->
 
   </div>
 </template>

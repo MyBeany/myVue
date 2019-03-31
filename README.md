@@ -9,6 +9,9 @@
 - [ **一：安装Vue脚手架所需环境** ](https://juejin.im/post/5b5fe1c8e51d4519511363cc)
 - [ **二：搭建Vue脚手架和整合ElementUI**  ](https://juejin.im/post/5b74ea4f51882561131aafea)
 - [ **三：创建登录页和跳转Home页**  ](https://juejin.im/post/5b767c27f265da27ee5361b4)
+- [ **四：创建 Home 页侧边栏，中间显示区域**  ](https://juejin.im/post/5ca01063e51d4577414ea14a)
+- [ **五：添加外部链接跳转功能**  ](https://juejin.im/post/5ca03024f265da30cd1843dd)
+- [ **六：添加修改系统主题样式功能**  ](https://juejin.im/post/5ca039356fb9a05e3f51e8e5)
 
  **项目预览**
 

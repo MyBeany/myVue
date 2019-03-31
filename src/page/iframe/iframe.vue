@@ -1,8 +1,6 @@
 <template>
   <div>
-    <keep-alive>
-      <iframe :src="query" class="iframeView"></iframe>
-    </keep-alive>
+    <iframe :src="query" class="iframeView"></iframe>
   </div>
 </template>
 
@@ -15,6 +13,7 @@
     },
     created: function () {
       this.query = this.$route.params.path;
+      console.log(this.$route.params)
     }
   }
 </script>

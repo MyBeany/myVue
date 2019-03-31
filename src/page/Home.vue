@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 100%;background: var(--backgroundStyle)">
+  <div style="height: 100%;background: var(--backgroundStyle);background-size: 100%">
     <div class="header-div disFlex">
       <el-tooltip class="item" effect="light" content="返回首页" placement="right">
         <div class="header-div-left disFlex" @click="gohome()">
@@ -100,7 +100,8 @@
   </div>
 </template>
 <script>
-  import * as theme from '../const/theme'
+  import * as theme from '../const/theme';
+  import * as storage from "./../utils/storage";
   export default {
     data() {
       return {
@@ -144,17 +145,21 @@
         }
       ];
       this.userName = "MyVue";
-      this.updateTheme(this.themeIndex);
+      this.setTheme();
     },
     methods: {
-      goPath(path){
-        let _this = this;
-        _this.$router.push({
-          path: path,
-        })
+      setTheme() {
+        let storageThemeIndex = storage.getStrLocalStorageItem("storageThemeIndex");
+        if (!storageThemeIndex) {
+          storage.setStrLocalStorageItem("storageThemeIndex", 0);
+        }
+        storageThemeIndex = storage.getStrLocalStorageItem("storageThemeIndex");
+        this.themeIndex = parseInt(storageThemeIndex);
+        this.updateTheme(storageThemeIndex);
       },
       updateTheme(index){
-        theme.setThemeStyle(index)
+        theme.setThemeStyle(index);
+        storage.setStrLocalStorageItem("storageThemeIndex", index);
       },
       screen() {
         var _this = this;
@@ -283,19 +288,23 @@
   }
 
   .menuSon-list-bgc {
+    margin-top: 5px;
     background-color: var(--headerColor);
-    padding: 15px 15px 15px 30px;
+    padding: 10px 15px 10px 30px;
+    border-radius: 5px;
   }
 
   .menuSon-list-color {
     background-color: var(--openSonMenuColor);
     color: var(--openSonFontColor);
     border-left: 4px solid;
+    cursor: pointer;
   }
 
   .menuSon-list-color1 {
     color: var(--fontColor);
-    padding: 15px 15px 15px 34px;
+    padding: 10px 15px 10px 34px;
+    cursor: pointer;
   }
 
   .setting-div {
